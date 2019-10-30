@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android= "http://schemas.android.com/apk/res/android"
+    package="com.example.findme" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="FindMe"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:background="@drawable/wll"
+        android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name=".login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".menu"
+            android:label="Welcome Back"
+             />
+        <activity
+            android:name=".forgotpassword"
+            android:label="Forgot Password" />
+    </application>
+
+</manifest>
