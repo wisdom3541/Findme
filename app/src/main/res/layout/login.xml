@@ -3,7 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="40dp"
-    android:background="@drawable/wll"
     android:theme="@style/AppTheme.NoActionBar">
     <TextView
         android:id="@+id/textView"
@@ -12,7 +11,7 @@
         android:textColor="#F1511B"
         style="@style/TextviewStyle"
         android:textAlignment="center"
-        android:text="Find ME"
+        android:text="Location"
         android:textSize="40dp" />
 
     <TextView

@@ -50,6 +50,9 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
+
+            case R.id.location:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new currentlocation()).commit();
             case R.id.add_friends:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new addfriends()).commit();
                 break;
