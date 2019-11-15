@@ -1,7 +1,5 @@
 package com.example.findme;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,9 +15,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class friendjava extends Fragment {
-    AlertDialog.Builder alert;
+
 
    ListView list;
+
+    public friendjava() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,19 +43,9 @@ public class friendjava extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                alert.setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("User")
-                        .setMessage("Select Options")
-                        .setPositiveButton("Get location", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int i) {
-                                Toast.makeText(getContext(),"Logging Out", Toast.LENGTH_LONG).show();
-                                  }
-                        })
-                        .setNegativeButton("Delete Friend", null);
-                        Toast.makeText(getContext(),"Deleting User",Toast.LENGTH_LONG).show();
-
+                String p = mylist.get(position).toString();
+                System.out.println(p);
+                Toast.makeText(getContext(),"Getting location" + p, Toast.LENGTH_LONG).show();
 
             }
         });
