@@ -1,5 +1,6 @@
 package com.example.findme;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,8 @@ public class friendjava extends Fragment {
 
 
    ListView list;
+   SharedPreferences pref;
+
 
     public friendjava() {
     }
@@ -27,9 +30,8 @@ public class friendjava extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.friends, container, false);
 
-
+        //pref = ("user_details", MODE_PRIVATE);
          list = (ListView) view.findViewById(R.id.listview1);
-
         final ArrayList<String> mylist = new ArrayList<>();
         mylist.add("wisdom");
         mylist.add("favour");
@@ -45,7 +47,11 @@ public class friendjava extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String p = mylist.get(position).toString();
                 System.out.println(p);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("username",p);
+                editor.commit();
                 Toast.makeText(getContext(),"Getting location" + p, Toast.LENGTH_LONG).show();
+
 
             }
         });

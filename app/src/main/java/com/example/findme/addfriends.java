@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class addfriends extends Fragment {
 
@@ -20,7 +19,6 @@ public class addfriends extends Fragment {
         View view = inflater.inflate(R.layout.addfriends,container,false);
 
         add = (EditText) view.findViewById(R.id.addf);
-        Toast.makeText(getContext(),"Getting location", Toast.LENGTH_LONG).show();
         return  view;
     }
 

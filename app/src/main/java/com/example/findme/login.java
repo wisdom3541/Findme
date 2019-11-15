@@ -37,12 +37,6 @@ public class login extends AppCompatActivity {
         intent2 = new Intent(login.this, forgotpassword.class);
 
 
-
-        if(pref.contains("username") && pref.contains("password")){
-
-        }
-
-
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
