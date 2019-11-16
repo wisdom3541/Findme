@@ -46,6 +46,17 @@
         <activity
             android:name=".forgotpassword"
             android:label="Forgot Password" />
+
+        <activity
+            android:name=".friendjava"
+            android:label="Friendlist"
+            />
+
+        <activity
+            android:name=".friendsprofile"
+            android:label="Fprofile"
+            />
+
     </application>
 
 </manifest>

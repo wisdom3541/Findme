@@ -1,17 +1,19 @@
 package com.example.findme;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,7 @@ public class friendjava extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.friends, container, false);
 
-        //pref = ("user_details", MODE_PRIVATE);
+        pref = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
          list = (ListView) view.findViewById(R.id.listview1);
         final ArrayList<String> mylist = new ArrayList<>();
         mylist.add("wisdom");
@@ -46,13 +48,17 @@ public class friendjava extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String p = mylist.get(position).toString();
-                System.out.println(p);
+                System.out.println("me " + p);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putString("username",p);
                 editor.commit();
-                Toast.makeText(getContext(),"Getting location" + p, Toast.LENGTH_LONG).show();
 
-
+                friendsprofile fp = new friendsprofile();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frag_cont, fp);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 

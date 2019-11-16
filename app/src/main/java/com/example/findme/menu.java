@@ -53,6 +53,7 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
 
             case R.id.location:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new currentlocation()).commit();
+                break;
             case R.id.add_friends:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new addfriends()).commit();
                 break;
