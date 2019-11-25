@@ -15,10 +15,10 @@ import android.widget.Toast;
 
 
 public class friendsprofile extends Fragment implements View.OnClickListener {
-    SharedPreferences pref;
+    SharedPreferences pref,pref1;
     TextView user,lastloc;
     Button dir, del;
-    String username;
+    String username,Lastlocation;
 
 
     @Nullable
@@ -29,15 +29,18 @@ public class friendsprofile extends Fragment implements View.OnClickListener {
 
         pref = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
 
+        pref1 = this.getActivity().getSharedPreferences("LastLocation", Context.MODE_PRIVATE);
+
         user = (TextView) view.findViewById(R.id.username);
         lastloc = (TextView) view.findViewById(R.id.lastloc);
         dir = (Button)view.findViewById(R.id.btn1);
         del= (Button)view.findViewById(R.id.btn2);
 
         username = pref.getString("username" , null);
+        Lastlocation = pref1.getString("LastLocation",null);
 
         user.setText(username);
-        lastloc.setText("London");
+        lastloc.setText("Last known location: " + Lastlocation);
 
         dir.setOnClickListener(new View.OnClickListener() {
             @Override

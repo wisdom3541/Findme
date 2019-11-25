@@ -1,6 +1,8 @@
 package com.example.findme;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -49,6 +51,7 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
     Geocoder geocoder;
     List<Address> locadss;
     String address;
+    SharedPreferences pref1;
 
 
     public currentlocation(){
@@ -75,6 +78,7 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
         fragmentTransaction.add(R.id.map, mMapFragment);
         fragmentTransaction.commit();
         mMapFragment.getMapAsync(this);
+        pref1 = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -164,12 +168,18 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title(address);
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+
+        SharedPreferences.Editor editor = pref1.edit();
+        editor.putString("LastLocation",address);
+        editor.commit();
+
 
         userlocmarker = map1.addMarker(markerOptions);
 
         map1.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        map1.animateCamera(CameraUpdateFactory.zoomBy(30));
+        map1.animateCamera(CameraUpdateFactory.zoomBy(20));
+
 
         if(googleApiClient != null){
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient,this);

@@ -39,8 +39,9 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new addfriends()).commit();
-            navigationView.setCheckedItem(R.id.add_friends);
+            Toast.makeText(this,"Getting Location", Toast.LENGTH_SHORT).show();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new currentlocation()).commit();
+            navigationView.setCheckedItem(R.id.location);
         }
 
 
