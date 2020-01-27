@@ -31,9 +31,9 @@
 
     <Button
         android:id="@+id/btn1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/simbut"
+        android:background="@drawable/round_but"
         android:text="Directions" />
 
     />
@@ -52,13 +52,13 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="60dp" />
 
     <Button
         android:id="@+id/btn2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/simbut2"
+        android:background="@drawable/simbut3"
         android:text="Delete" />
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class addfriends extends Fragment {
 
@@ -19,8 +20,13 @@ public class addfriends extends Fragment {
         View view = inflater.inflate(R.layout.addfriends,container,false);
 
         add = (EditText) view.findViewById(R.id.addf);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"Friend Added",Toast.LENGTH_LONG);
+            }
+        });
         return  view;
     }
-
-
 }

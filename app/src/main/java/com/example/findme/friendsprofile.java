@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 
 public class friendsprofile extends Fragment implements View.OnClickListener {
-    SharedPreferences pref,pref1;
+    SharedPreferences pref1;
     TextView user,lastloc;
     Button dir, del;
     String username,Lastlocation;
@@ -27,7 +27,7 @@ public class friendsprofile extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.friendsprofile, container, false);
 
 
-        pref = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
+        pref1 = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
 
         pref1 = this.getActivity().getSharedPreferences("LastLocation", Context.MODE_PRIVATE);
 
@@ -36,7 +36,7 @@ public class friendsprofile extends Fragment implements View.OnClickListener {
         dir = (Button)view.findViewById(R.id.btn1);
         del= (Button)view.findViewById(R.id.btn2);
 
-        username = pref.getString("username" , null);
+        username = pref1.getString("username" , null);
         Lastlocation = pref1.getString("LastLocation",null);
 
         user.setText(username);

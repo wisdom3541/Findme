@@ -41,21 +41,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
-    <TextView
-        android:id="@+id/forgot"
-        android:textColor="#2680EB"
-        style="@style/TextviewStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:textAlignment="center"
-        android:text="Forget password?" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
         android:background="@drawable/round_but"/>
+    <TextView
+        android:id="@+id/forgot"
+        android:textColor="#2680EB"
+        style="@style/TextviewStyle"
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Forget password?" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+    <Button
+        android:id="@+id/signupbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Account? Sign Up Here"
+        android:background="@drawable/round_butwhite"/>
 
 
 

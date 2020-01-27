@@ -15,10 +15,10 @@ import android.widget.Toast;
 
 public class login extends AppCompatActivity {
     EditText uname, pwd;
-    Button loginBtn;
+    Button loginBtn,signupb;
     TextView forgot;
     SharedPreferences pref;
-    Intent intent,intent2;
+    Intent intent,intent2,intent3;
     MediaPlayer song;
     Menu menu;
 
@@ -31,10 +31,12 @@ public class login extends AppCompatActivity {
         uname = (EditText)findViewById(R.id.txtName);
         pwd = (EditText)findViewById(R.id.txtPwd);
         loginBtn = (Button)findViewById(R.id.btnLogin);
+        signupb =(Button)findViewById(R.id.signupbtn);
         forgot=(TextView) findViewById(R.id.forgot);
         pref = getSharedPreferences("user_details",MODE_PRIVATE);
         intent = new Intent(login.this, com.example.findme.menu.class);
         intent2 = new Intent(login.this, forgotpassword.class);
+        intent3 = new Intent(login.this,signup.class);
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +68,13 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(intent2);
+            }
+        });
+
+        signupb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent3);
             }
         });
     }

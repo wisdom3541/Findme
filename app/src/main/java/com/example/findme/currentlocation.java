@@ -50,7 +50,7 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
     private static final int requestlocation = 99;
     Geocoder geocoder;
     List<Address> locadss;
-    String address;
+    String address,lastloc;
     SharedPreferences pref1;
 
 
@@ -170,10 +170,6 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
         markerOptions.title(address);
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
 
-        SharedPreferences.Editor editor = pref1.edit();
-        editor.putString("LastLocation",address);
-        editor.commit();
-
 
         userlocmarker = map1.addMarker(markerOptions);
 
@@ -198,7 +194,14 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
         {
             LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
         }
+
+        lastloc = address;
+
+        SharedPreferences.Editor editor = pref1.edit();
+        editor.putString("LastLocation",lastloc);
+        editor.commit();
     }
+
 
     @Override
     public void onConnectionSuspended(int i) {

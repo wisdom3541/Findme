@@ -60,6 +60,10 @@
             android:name=".friendsprofile"
             android:label="Fprofile"
             />
+        <activity
+            android:name=".signup"
+            android:label="Signuppage"
+            />
 
     </application>
 
