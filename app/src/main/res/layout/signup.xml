@@ -4,9 +4,10 @@
     android:orientation="vertical"
      android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/AppTheme.NoActionBar"
     android:padding="40dp"
-    android:background="#43F0511B"
-    android:theme="@style/AppTheme.NoActionBar">
+    android:background="#43E4DCDC"
+ >
 
 
     <TextView
@@ -86,5 +87,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:textColor="#F1511B"
         android:background="@drawable/round_butwhite"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Or"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textColor="#F1511B"/>
 </LinearLayout>

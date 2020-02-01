@@ -63,6 +63,7 @@
         <activity
             android:name=".signup"
             android:label="Signuppage"
+            android:theme="@style/AppTheme.NoActionBar"
             />
 
     </application>
