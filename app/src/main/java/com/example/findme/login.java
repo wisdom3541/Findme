@@ -22,18 +22,17 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class login extends AppCompatActivity {
+    //varaible
     EditText uname, pwd;
     Button loginBtn,signupb;
     TextView forgot,user1;
     SharedPreferences pref;
     Intent intent,intent2,intent3;
-    Menu menu;
     private FirebaseAuth mAuth;
     String email,password;
     private static final String TAG = "My activity";
 
 
-   // String[] username={"wisdom","tobi","ay","ella","mide","temi","faith","ayus","chidinma","solomon"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +49,7 @@ public class login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
+        //button onclick listerner to call signin method from firebaseauth
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +69,8 @@ public class login extends AppCompatActivity {
 
             }
         });
+
+        //calls the forgot password menu
         forgot.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -77,6 +78,7 @@ public class login extends AppCompatActivity {
             }
         });
 
+        //calls the sign up menu
         signupb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

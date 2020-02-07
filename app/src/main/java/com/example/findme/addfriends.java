@@ -21,6 +21,8 @@ public class addfriends extends Fragment {
 
         add = (EditText) view.findViewById(R.id.addf);
 
+
+        //toast
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
