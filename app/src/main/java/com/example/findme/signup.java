@@ -53,26 +53,6 @@ public class signup extends AppCompatActivity {
 
     }
 
-
-
-    public void username(){
-        setContentView(R.layout.username);
-        username1 = (TextView) findViewById(R.id.username);
-        submit= (Button) findViewById(R.id.submituser);
-
-
-
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(intent);
-            }
-        });
-
-
-    }
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -93,7 +73,6 @@ public class signup extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-                            username();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
