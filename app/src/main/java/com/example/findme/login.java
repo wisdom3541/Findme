@@ -120,5 +120,7 @@ public class login extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser currentUser) {
+
+
     }
 }
