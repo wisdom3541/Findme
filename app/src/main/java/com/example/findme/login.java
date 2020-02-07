@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class login extends AppCompatActivity {
     EditText uname, pwd;
     Button loginBtn,signupb;
-    TextView forgot;
+    TextView forgot,user1;
     SharedPreferences pref;
     Intent intent,intent2,intent3;
     Menu menu;
@@ -33,7 +33,7 @@ public class login extends AppCompatActivity {
     private static final String TAG = "My activity";
 
 
-    String[] username={"wisdom","tobi","ay","ella","mide","temi","faith","ayus","chidinma","solomon"};
+   // String[] username={"wisdom","tobi","ay","ella","mide","temi","faith","ayus","chidinma","solomon"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +60,7 @@ public class login extends AppCompatActivity {
                 String username = uname.getText().toString();
                 String password = pwd.getText().toString();
                 signin();
+
 
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("username",username);

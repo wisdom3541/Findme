@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
     DrawerLayout drawer;
     Intent intent1;
     AlertDialog.Builder alert;
+    TextView name;
 
 
 
@@ -37,6 +39,7 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
         drawer = findViewById(R.id.navbar);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

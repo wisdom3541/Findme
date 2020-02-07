@@ -57,7 +57,6 @@ public class signup extends AppCompatActivity {
 
     public void username(){
         setContentView(R.layout.username);
-        user = (EditText) findViewById(R.id.user);
         username1 = (TextView) findViewById(R.id.username);
         submit= (Button) findViewById(R.id.submituser);
 
@@ -66,8 +65,6 @@ public class signup extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               username = user.getText().toString();
-
                 startActivity(intent);
             }
         });
