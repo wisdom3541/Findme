@@ -71,6 +71,10 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new friendjava()).commit();
                 break;
 
+            case R.id.settings:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new settings()).commit();
+                break;
+
             case R.id.logout:
                 alert.setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure ")

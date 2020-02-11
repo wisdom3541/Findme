@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp">
+
+
+
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="40dp"
+
     android:theme="@style/AppTheme.NoActionBar">
 
-
-    <TextView
+<TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -19,14 +25,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp"/>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="98dp"
-        android:layout_height="69dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
 
     <TextView
         style="@style/TextviewStyle"
@@ -34,9 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Wisdom"
         android:textColor="#2E2C2A"
-        android:paddingLeft="110dp"
         android:textSize="40dp" />
-</RelativeLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -60,7 +57,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         />
 
 
@@ -73,7 +70,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         />
 
     <TextView
@@ -84,7 +81,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         />
 
     <TextView
@@ -93,28 +90,40 @@
         android:text="Feedback"
         android:textSize="20dp"
         android:textColor="#000000"
+        android:drawableLeft="@drawable/message"
+        android:drawablePadding="10dp"
         />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Call us"
-
         android:textSize="20dp"
         android:textColor="#000000"
+        android:drawableLeft="@drawable/phone"
+        android:drawablePadding="10dp"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F9F9F9"
         android:text="Delete Account"
+        android:background="@drawable/round_butwhite"
         android:textColor="#FF0000"/>
 
 
+
+
 </LinearLayout>
+
+</ScrollView>
