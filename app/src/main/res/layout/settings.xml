@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    android:theme="@style/AppTheme.NoActionBar">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#F1511B"
+        style="@style/TextviewStyle"
+        android:text="Settings"
+        android:textSize="40dp"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="98dp"
+        android:layout_height="69dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        style="@style/TextviewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wisdom"
+        android:textColor="#2E2C2A"
+        android:paddingLeft="110dp"
+        android:textSize="40dp" />
+</RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:textSize="15dp"
+        android:background="#F9F9F9"
+        android:textColor="#F1511B"
+        android:paddingLeft="5dp"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        />
+
+    <Switch
+        android:id="@+id/locswitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textSize="20dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        />
+
+
+    <Switch
+        android:id="@+id/theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dark Mode"
+        android:textSize="20dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Service"
+        android:textSize="15dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Feedback"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Call us"
+
+        android:textSize="20dp"
+        android:textColor="#000000"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F9F9F9"
+        android:text="Delete Account"
+        android:textColor="#FF0000"/>
+
+
+</LinearLayout>
