@@ -10,14 +10,14 @@ android:background="@drawable/wll"
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Enter Friend's ID"
-    android:id="@+id/addf"
+    android:hint="Enter Friend's ID"
+    android:id="@+id/addftext"
     android:textAlignment="center"
     android:textSize="30dp"
     android:layout_margin="15dp"/>
 
 <Button
-    android:id="@+id/btnLogin"
+    android:id="@+id/addf"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="Add Friend"
