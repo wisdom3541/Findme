@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="30dp"
-    android:paddingTop="10dp"
+    android:paddingTop="20dp"
     android:paddingRight="20dp"
     android:paddingBottom="10dp">
 
@@ -20,16 +20,16 @@
         android:layout_height="match_parent">
 
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="120dp">
 
-
-<TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="#F1511B"
-        style="@style/TextviewStyle"
-        android:text="Settings"
-        android:textSize="40dp"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/profileimg" />
+        </RelativeLayout>
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp"/>
