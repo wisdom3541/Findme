@@ -65,6 +65,12 @@
             android:label="Signuppage"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".settings"
+            android:label="Settings"/>
+        <activity
+            android:name="editprofile"
+            android:label=""/>
 
     </application>
 
