@@ -36,12 +36,13 @@
 
 
     <TextView
+        android:id="@+id/useremail"
         style="@style/TextviewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wisdom"
         android:textColor="#2E2C2A"
-        android:textSize="40dp" />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/editprobtn"
