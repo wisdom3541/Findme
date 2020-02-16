@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp"
+    >
+
+    <TextView
+        style="@style/TextviewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find ME"
+        android:textAlignment="center"
+        android:textColor="#F1511B"
+        android:textSize="40dp"
+        />
+
+   <Space
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
+    <Button
+        android:id="@+id/firstsigninbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_but"
+        android:text="Sign IN"
+        android:textColor="#FFFFFF"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+
+    <Button
+        android:id="@+id/firstsignupbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_butwhite"
+        android:text="Sign Up"
+        android:textColor="#F1511B"/>
+
+
+
+</LinearLayout>

@@ -11,7 +11,7 @@
         android:textColor="#F1511B"
         style="@style/TextviewStyle"
         android:textAlignment="center"
-        android:text="Location"
+        android:text="Sign IN"
         android:textSize="40dp" />
 
     <TextView

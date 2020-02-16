@@ -80,6 +80,19 @@
 
     <Space
         android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <EditText
+        android:id="@+id/suverifyPassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint="Password"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart" />
+
+    <Space
+        android:layout_width="match_parent"
         android:layout_height="30dp" />
 
     <Button
@@ -94,11 +107,5 @@
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Or"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:textColor="#F1511B"/>
+
 </LinearLayout>

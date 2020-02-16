@@ -40,7 +40,7 @@
         style="@style/TextviewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wisdom"
+        android:text="example@gmail.com"
         android:textColor="#2E2C2A"
         android:textSize="20dp" />
 
