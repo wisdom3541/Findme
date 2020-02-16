@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import io.paperdb.Paper;
 
 
 public class login extends AppCompatActivity {
@@ -30,6 +33,7 @@ public class login extends AppCompatActivity {
     Intent intent,intent2,intent3;
     private FirebaseAuth mAuth;
     String email,password;
+    CheckBox remembermecheck;
     private static final String TAG = "My activity";
 
 
@@ -42,6 +46,9 @@ public class login extends AppCompatActivity {
         loginBtn = (Button)findViewById(R.id.btnLogin);
         signupb =(Button)findViewById(R.id.signupbtn);
         forgot=(TextView) findViewById(R.id.forgot);
+        remembermecheck = (CheckBox) findViewById(R.id.check);
+        Paper.init(this);
+
         pref = getSharedPreferences("user_details",MODE_PRIVATE);
         intent = new Intent(login.this, com.example.findme.menu.class);
         intent2 = new Intent(login.this, forgotpassword.class);
@@ -58,6 +65,12 @@ public class login extends AppCompatActivity {
                 password = pwd.getText().toString();
                 String username = uname.getText().toString();
                 String password = pwd.getText().toString();
+
+                if(remembermecheck.isChecked()){
+                    Paper.book().write(rememberme.rememberuseremail,email);
+                    Paper.book().write(rememberme.rememberuserpassword,password);
+                }
+
                 signin();
 
 

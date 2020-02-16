@@ -51,15 +51,33 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:background="@drawable/round_but"/>
+    
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember Me"
+        android:textColor="#EF511B"/>
+      
+    
     <TextView
         android:id="@+id/forgot"
         android:textColor="#2680EB"
         style="@style/TextviewStyle"
-        android:paddingTop="10dp"
+        android:paddingLeft="100dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="Forget password?" />
+    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
