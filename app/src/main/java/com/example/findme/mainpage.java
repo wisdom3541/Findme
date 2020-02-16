@@ -24,9 +24,10 @@ import io.paperdb.Paper;
 public class mainpage extends AppCompatActivity {
 
     Button signin,signup;
-    Intent intent,intent2;
-    final FirebaseAuth mAuth
-    FirebaseUser currentUser = mAuth.getCurrentUser();
+    Intent intent,intent2,intent3;
+    String email;
+    String password;
+    FirebaseAuth mAuth;
 
 
 
@@ -37,9 +38,10 @@ public class mainpage extends AppCompatActivity {
 
         signin = (Button) findViewById(R.id.firstsigninbtn);
         signup = (Button) findViewById(R.id.firstsignupbtn);
-         intent = new Intent(this,login.class);
-         intent2 = new Intent(this, signup.class);
-         mAuth = FirebaseAuth.getInstance();
+        intent = new Intent(this, login.class);
+        intent2 = new Intent(this, signup.class);
+        intent3 = new Intent(this, com.example.findme.menu.class);
+        mAuth = FirebaseAuth.getInstance();
         Paper.init(this);
 
         signin.setOnClickListener(new View.OnClickListener() {
@@ -56,16 +58,23 @@ public class mainpage extends AppCompatActivity {
             }
         });
 
-        String email = Paper.book().read(rememberme.rememberuseremail);
-        String password = Paper.book().read(rememberme.rememberuserpassword);
+         email = Paper.book().read(rememberme.rememberuseremail);
+         password = Paper.book().read(rememberme.rememberuserpassword);
 
-        if( email != "" && password != "")
-        {
-            if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
+        if (email != "" && password != "") {
+            if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
                 signin();
             }
         }
+    }
 
+        @Override
+        public void onStart() {
+            super.onStart();
+            // Check if user is signed in (non-null) and update UI accordingly.
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            updateUI(currentUser);
+        }
 
         public  void signin(){
             mAuth.signInWithEmailAndPassword(email, password)
@@ -77,11 +86,11 @@ public class mainpage extends AppCompatActivity {
                                 Log.d("Login", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 updateUI(user);
-                                startActivity(intent);
+                                startActivity(intent3);
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(login.this, "Authentication failed.",
+                                Log.w("Message", "signInWithEmail:failure", task.getException());
+                                Toast.makeText(getApplicationContext(), "Authentication failed.",
                                         Toast.LENGTH_LONG).show();
                                 updateUI(null);
                             }
@@ -98,7 +107,7 @@ public class mainpage extends AppCompatActivity {
 
 
 
-}
+
 
 
 

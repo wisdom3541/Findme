@@ -34,9 +34,7 @@ public class settings extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // Name, email address
-            String name = user.getDisplayName();
              email1 = user.getEmail();
-            Log.d("name = ",name);
              email.setText(email1);
         }
 
