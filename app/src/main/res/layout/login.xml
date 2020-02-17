@@ -3,7 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="40dp"
-    android:theme="@style/AppTheme.NoActionBar">
+    style="@style/AppTheme"
+    >
     <TextView
         android:id="@+id/textView"
         android:layout_height="wrap_content"
@@ -51,23 +52,23 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:background="@drawable/round_but"/>
-    
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="10dp" />
-    
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    
+
     <CheckBox
         android:id="@+id/check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Remember Me"
         android:textColor="#EF511B"/>
-      
-    
+
+
     <TextView
         android:id="@+id/forgot"
         android:textColor="#2680EB"
