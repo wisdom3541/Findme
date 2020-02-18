@@ -4,9 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/menuwal"
     android:theme="@style/AppTheme.NoActionBar"
     android:padding="40dp"
-    android:background="#43463636"
     >
 
 

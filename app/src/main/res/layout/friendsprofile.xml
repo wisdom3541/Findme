@@ -1,64 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="40dp"
+    android:background="@drawable/menuwal"
     android:theme="@style/AppTheme.NoActionBar">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="274dp"
-        android:layout_height="78dp"
-        android:paddingLeft="70dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="100dp"
-        android:paddingTop="22dp"
-        android:textSize="30dp"
-        android:text="UserName"
-        />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="27dp" />
-
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_but"
-        android:text="Directions" />
-
-    />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="27dp" />
-
-    <TextView
-        android:id="@+id/lastloc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last seen Location"
-        />
-
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_width="239dp"
+        android:layout_height="158dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="533dp"
+        app:srcCompat="@drawable/profileimg" />
 
     <Button
         android:id="@+id/btn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/simbut3"
-        android:text="Delete" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="161dp"
+        android:background="@drawable/round_but"
+        android:text="Delete User" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="250dp"
+        android:background="@drawable/round_butwhite"
+        android:text="Locate user" />
+
+    <TextView
+        android:id="@+id/lastloc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="463dp"
+        android:text="Last Location: "
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+</RelativeLayout>

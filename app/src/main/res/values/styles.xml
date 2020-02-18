@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@drawable/menuwal</item>
         <!--<item name="android:windowBackground">@drawable/backgroundimg</item>-->
     </style>
 
@@ -14,6 +15,7 @@
         <item name="colorPrimary">#F44336</item>
         <item name="colorAccent">#FFFFFF</item>
         <item name="android:windowBackground">@drawable/back</item>
+        <item name="android:background">@drawable/menuwal</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">

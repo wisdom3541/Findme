@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme.NoActionBar"
     android:padding="40dp"
-    android:background="#43E4DCDC"
+    android:background="@drawable/menuwal"
  >
 
 
@@ -100,8 +100,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
-        android:textColor="#F1511B"
-        android:background="@drawable/round_butwhite"/>
+        android:background="@drawable/round_but"
+        android:textColor="#FFFFFF"/>
 
     <Space
         android:layout_width="match_parent"
