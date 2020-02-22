@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="40dp"
-    android:background="@drawable/menuwal"
+    android:background="@drawable/backg"
     >
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Find ME"
         android:textAlignment="center"
-        android:textColor="#F1511B"
+        android:textColor="#FDFDFD"
         android:textSize="40dp"
         />
 
@@ -25,9 +25,9 @@
         android:id="@+id/firstsigninbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_but"
+        android:background="@drawable/round_butwhite"
         android:text="Sign IN"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#EF501B"/>
 
     <Space
         android:layout_width="match_parent"
@@ -38,9 +38,9 @@
         android:id="@+id/firstsignupbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_butwhite"
+        android:background="@drawable/round_but"
         android:text="Sign Up"
-        android:textColor="#F1511B"/>
+        android:textColor="#F8F8F8"/>
 
 
 
