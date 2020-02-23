@@ -68,9 +68,24 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="10dp" />
+    <EditText
+        android:id="@+id/Phonen"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
 
     <EditText
         android:id="@+id/suPassword"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/edittext"
@@ -84,6 +99,7 @@
 
     <EditText
         android:id="@+id/suverifyPassword"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/edittext"

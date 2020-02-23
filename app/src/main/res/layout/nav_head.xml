@@ -2,22 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@drawable/profile"
+    android:background="#FFFFFF"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:padding="20dp"
+    android:theme="@style/AppTheme.NoActionBar">
 
     <ImageView
         android:layout_width="108dp"
         android:layout_height="108dp"
-        android:src="@drawable/waterfall" />
+        android:src="@drawable/profileimg" />
 
     <TextView
         android:id="@+id/user1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
         android:text="user"
         android:textSize="20dp"
         android:textStyle="bold" />
