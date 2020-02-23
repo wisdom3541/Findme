@@ -29,8 +29,13 @@
     <EditText
         android:id="@+id/txtName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint = "example@mail.com"
+        android:paddingLeft="10dp"
         android:ems="10" />
+
+
     <TextView
         android:id="@+id/secTxt"
         android:layout_width="wrap_content"
@@ -43,7 +48,10 @@
         android:id="@+id/txtPwd"
         android:inputType="textPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint = "password"
+        android:paddingLeft="10dp"
         android:ems="10" />
 
     <Space

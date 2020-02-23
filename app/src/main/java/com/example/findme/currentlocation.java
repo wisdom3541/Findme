@@ -172,6 +172,8 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
 
 
         userlocmarker = map1.addMarker(markerOptions);
+        // Selct maptype
+        map1.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         map1.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         map1.animateCamera(CameraUpdateFactory.zoomBy(20));

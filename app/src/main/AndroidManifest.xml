@@ -18,9 +18,8 @@
     <application
         android:allowBackup="true"
         android:background="@drawable/wll"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/flogo2"
         android:label="FindMe"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
@@ -42,7 +41,7 @@
             android:label="@string/title_activity_maps">
 
         </activity>
-        <activity android:name="mainpage">
+        <activity android:name="mainpage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
