@@ -22,10 +22,10 @@ public class friendjava extends Fragment {
 
 
    ListView list;
-   SharedPreferences pref;
 
 
     public friendjava() {
+
     }
 
     @Nullable
@@ -33,7 +33,7 @@ public class friendjava extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.friends, container, false);
 
-        pref = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
+        //listview
          list = (ListView) view.findViewById(R.id.listview1);
         final ArrayList<String> mylist = new ArrayList<>();
         mylist.add("wisdom");
@@ -41,6 +41,7 @@ public class friendjava extends Fragment {
         mylist.add("faith");
         mylist.add("chisom");
 
+        //listview type
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,mylist);
 
         list.setAdapter(arrayAdapter);
@@ -48,12 +49,10 @@ public class friendjava extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String p = mylist.get(position).toString();
+                String p = mylist.get(position);
                 System.out.println("me " + p);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("username",p);
-                editor.commit();
 
+                //fragment swap
                 friendsprofile fp = new friendsprofile();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

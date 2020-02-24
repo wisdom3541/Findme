@@ -35,6 +35,7 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
+        //revrieving id
         Name = (EditText) findViewById(R.id.suname);
         Email = (EditText) findViewById(R.id.suEmail);
         Password = (EditText)findViewById(R.id.suPassword);
@@ -45,7 +46,7 @@ public class signup extends AppCompatActivity {
         intent = new Intent(signup.this,login.class);
         mAuth = FirebaseAuth.getInstance();
 
-
+        //listerner and  validations
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,9 +56,8 @@ public class signup extends AppCompatActivity {
                 name = Name.getText().toString();
                passwordverify = vPassword.getText().toString();
 
-
                     if (name != null && email != null && password != null && passwordverify != null) {
-                        if(password == passwordverify) {
+                        if(password.equals(passwordverify)) {
                             createacct();
                         }
                         else {

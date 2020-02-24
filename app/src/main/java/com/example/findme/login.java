@@ -27,8 +27,7 @@ public class login extends AppCompatActivity {
     //varaible
     EditText uname, pwd;
     Button loginBtn,signupb;
-    TextView forgot,user1;
-    SharedPreferences pref;
+    TextView forgot;
     Intent intent,intent2,intent3;
     private FirebaseAuth mAuth;
     String email,password;
@@ -40,6 +39,8 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        //getting id
         uname = (EditText)findViewById(R.id.txtName);
         pwd = (EditText)findViewById(R.id.txtPwd);
         loginBtn = (Button)findViewById(R.id.btnLogin);
@@ -47,8 +48,6 @@ public class login extends AppCompatActivity {
         forgot=(TextView) findViewById(R.id.forgot);
         remembermecheck = (CheckBox) findViewById(R.id.check);
         Paper.init(this);
-
-        pref = getSharedPreferences("user_details",MODE_PRIVATE);
         intent = new Intent(login.this, com.example.findme.menu.class);
         intent2 = new Intent(login.this, forgotpassword.class);
         intent3 = new Intent(login.this,signup.class);
@@ -69,16 +68,7 @@ public class login extends AppCompatActivity {
                     Paper.book().write(rememberme.rememberuseremail,email);
                     Paper.book().write(rememberme.rememberuserpassword,password);
                 }
-
                 signin();
-
-
-                    SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("username",username);
-                    editor.putString("password",password);
-                    editor.commit();
-
-
             }
         });
 

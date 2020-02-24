@@ -20,6 +20,7 @@ public class settings extends Fragment {
 
     Button editpro;
     TextView email;
+    TextView username;
     Intent intent;
     String email1;
 
@@ -30,6 +31,7 @@ public class settings extends Fragment {
 
         editpro= (Button) view.findViewById(R.id.editprobtn);
         email = (TextView) view.findViewById(R.id.useremail);
+        username = (TextView) view.findViewById(R.id.user1);
         intent = new Intent(getContext(),editprofile.class);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -39,18 +41,13 @@ public class settings extends Fragment {
              email.setText(email1);
         }
 
-
-
-
+        //listerner
         editpro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 startActivity(intent);
-
             }
         });
-
        return view;
     }
 }

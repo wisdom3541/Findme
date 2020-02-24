@@ -37,6 +37,7 @@ public class mainpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first);
 
+        //retrieving id
         signin = (Button) findViewById(R.id.firstsigninbtn);
         signup = (Button) findViewById(R.id.firstsignupbtn);
         intent = new Intent(this, login.class);

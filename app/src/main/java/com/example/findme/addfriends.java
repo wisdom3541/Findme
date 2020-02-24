@@ -16,6 +16,7 @@ import com.google.firebase.database.annotations.Nullable;
 
 public class addfriends extends Fragment {
 
+    //variables
     EditText add;
     Button addf;
 
@@ -30,6 +31,7 @@ public class addfriends extends Fragment {
 
 
         //toast
+        //onClicklisterners
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

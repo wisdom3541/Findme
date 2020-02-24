@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class forgotpassword extends AppCompatActivity {
+
+    //variable
     Button fgbtn;
     EditText fgtxt;
 
@@ -16,6 +18,7 @@ public class forgotpassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgotpassword);
+
 
         fgbtn = (Button)findViewById(R.id.btnLogin);
         fgtxt = (EditText)findViewById(R.id.txtName);

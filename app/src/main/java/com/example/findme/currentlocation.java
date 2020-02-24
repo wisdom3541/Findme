@@ -52,7 +52,6 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
     Geocoder geocoder;
     List<Address> locadss;
     String address,lastloc;
-    SharedPreferences pref1;
 
 
     public currentlocation(){
@@ -79,7 +78,6 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
         fragmentTransaction.add(R.id.map, mMapFragment);
         fragmentTransaction.commit();
         mMapFragment.getMapAsync(this);
-        pref1 = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -198,11 +196,8 @@ public class currentlocation extends Fragment implements OnMapReadyCallback,Goog
             LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
         }
 
-        lastloc = address;
 
-        SharedPreferences.Editor editor = pref1.edit();
-        editor.putString("LastLocation",lastloc);
-        editor.commit();
+
     }
 
 

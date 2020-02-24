@@ -21,10 +21,6 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
     DrawerLayout drawer;
     Intent intent1;
     AlertDialog.Builder alert;
-    TextView name;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +38,7 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
 
 
 
+        //sidebar open and close
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -56,6 +53,7 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
         intent1 = new Intent(menu.this, login.class);
     }
 
+    //sidebar listerner and fragment listerner
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -100,7 +98,8 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else {
             super.onBackPressed();
         }
 
