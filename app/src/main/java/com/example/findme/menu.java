@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawer;
@@ -80,7 +81,8 @@ public class menu extends AppCompatActivity implements NavigationView.OnNavigati
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
-                                Toast.makeText(menu.this, "Logging Out", Toast.LENGTH_LONG).show();
+                                //signout pastor
+                                FirebaseAuth.getInstance().signOut();
                                 startActivity(intent1);
                             }
                         })

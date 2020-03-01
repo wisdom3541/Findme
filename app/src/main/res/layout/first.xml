@@ -38,7 +38,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="230dp" />
+        android:layout_height="220dp" />
 
     <Button
         android:id="@+id/firstsigninbtn"
@@ -60,6 +60,10 @@
         android:background="@drawable/round_but"
         android:text="Sign Up"
         android:textColor="#F8F8F8"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"/>
 
 
 

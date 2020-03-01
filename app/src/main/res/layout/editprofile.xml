@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menuwal"
+    android:background="#ffffff"
     android:padding="30dp">
 
     <LinearLayout
@@ -16,11 +16,15 @@
         android:layout_height="wrap_content"
 
         android:paddingLeft="120dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/profileimg"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp"/>
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/profileimg" />
     </RelativeLayout>
 
 
@@ -74,8 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save Profile"
-            android:background="@drawable/round_butwhite"
-            android:textColor="#FF0000"/>
+            android:background="@drawable/round_but"
+            android:textColor="#FFFFFF"/>
 
 
 

@@ -103,7 +103,4 @@
         android:text="No Account? Sign Up Here"
         android:background="@drawable/round_butwhite"/>
 
-
-
-
 </LinearLayout>

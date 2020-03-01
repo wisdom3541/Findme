@@ -16,15 +16,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
 public class signup extends AppCompatActivity {
-    EditText Name,Email,Password,vPassword;
+    EditText Name,Email,Password,vPassword,edittextphone;
     Button signup;
-    String email,password,passwordverify,name;
+    String email,password,passwordverify,name,phone;
     Intent intent;
     private FirebaseAuth mAuth;
     // Access a Cloud Firestore instance from your Activity
@@ -41,9 +42,9 @@ public class signup extends AppCompatActivity {
         Password = (EditText)findViewById(R.id.suPassword);
         vPassword = (EditText)findViewById(R.id.suverifyPassword);
         signup = (Button)findViewById(R.id.signupbtn);
+        edittextphone = (EditText)findViewById(R.id.Phonen);
 
-
-        intent = new Intent(signup.this,login.class);
+      intent  = new Intent(signup.this,login.class);
         mAuth = FirebaseAuth.getInstance();
 
         //listerner and  validations
@@ -54,19 +55,29 @@ public class signup extends AppCompatActivity {
                 email = Email.getText().toString() ;
                 password = Password.getText().toString();
                 name = Name.getText().toString();
-               passwordverify = vPassword.getText().toString();
+                passwordverify = vPassword.getText().toString();
+                phone = edittextphone.getText().toString();
 
                     if (name != null && email != null && password != null && passwordverify != null) {
-                        if(password.equals(passwordverify)) {
-                            createacct();
+                        if(!phone.equals("")) {
+
+                            if (password.equals(passwordverify)) {
+
+                                createacct();
+                            }
+                            else {
+
+                                Toast.makeText(com.example.findme.signup.this,"Password doesn't match", Toast.LENGTH_LONG).show();
+                            }
                         }
                         else {
-                            Toast.makeText(com.example.findme.signup.this,"Passord does not match", Toast.LENGTH_LONG);
+                            Toast.makeText(com.example.findme.signup.this,"Enter Phone Number", Toast.LENGTH_LONG).show();
                         }
                 }
                     else {
-                        Toast.makeText(com.example.findme.signup.this,"Fill all details", Toast.LENGTH_LONG);
+                        Toast.makeText(com.example.findme.signup.this,"Fill all details", Toast.LENGTH_LONG).show();
                     }
+
             }
         });
 
@@ -74,26 +85,17 @@ public class signup extends AppCompatActivity {
 
     public void addusertodb()
     {
+
+        CollectionReference profiles = db.collection("users");
         // Create a new user with a first and last name
         Map<String, Object> user = new HashMap<>();
         user.put("Name", name);
         user.put("Email", email);
+        user.put("Phone No", phone);
+        profiles.document(email).set(user);
 
 // Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("Message", "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Message", "Error adding document", e);
-                    }
-                });
+
 
     }
     @Override
@@ -115,12 +117,13 @@ public class signup extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Message", "createUserWithEmail:success");
                             addusertodb();
+                            startActivity(intent);
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Message", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(signup.this, "Authentication failed.",
+                            Toast.makeText(signup.this, "Please Enter a Valid Email",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
