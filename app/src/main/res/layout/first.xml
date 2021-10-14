@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EF501B"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flogo2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica"
+        android:text="Find ME"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#FDFDFD"
+        android:textSize="40dp"
+        android:layout_marginTop="20dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="220dp" />
+
+    <Button
+        android:id="@+id/firstsigninbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_butwhite"
+        android:text="Sign IN"
+        android:textColor="#EF501B" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+
+    <Button
+        android:id="@+id/firstsignupbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_but"
+        android:text="Sign Up"
+        android:textColor="#F8F8F8" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp" />
+
+
+</LinearLayout>
