@@ -59,26 +59,33 @@
             android:name=".forgotpassword"
             android:label="Forgot Password" />
 
-        <activity
-            android:name=".friendjava"
-            android:label="Friendlist"
-            />
 
-        <activity
-            android:name=".friendsprofile"
-            android:label="Fprofile"
-            />
+        <activity android:name=".addfriends"
+            android:label="AddFriend">
+
+        </activity>
+
+        <activity android:name=".friendrequest"
+            android:label="Friend Request">
+
+        </activity>
+
+
         <activity
             android:name=".signup"
             android:label="Signuppage"
             android:theme="@style/AppTheme.NoActionBar"
             />
-        <activity
-            android:name=".settings"
-            android:label="Settings"/>
+
         <activity
             android:name="editprofile"
-            android:label=""/>
+            android:label="Edit Profile"/>
+
+        <activity android:name=".friendRequestOption"
+            android:label="Request Option"
+            android:theme="@style/request">
+
+        </activity>
 
     </application>
 

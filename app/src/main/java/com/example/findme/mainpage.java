@@ -9,7 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseUser; 
 import com.google.firebase.auth.FirebaseAuth;
 
 import io.paperdb.Paper;

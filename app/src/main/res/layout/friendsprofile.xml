@@ -7,7 +7,7 @@
     android:padding="30dp"
     android:background="@drawable/menuwal"
     android:theme="@style/AppTheme.NoActionBar">
-
+ 
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"

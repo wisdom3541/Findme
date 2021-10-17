@@ -17,7 +17,7 @@ public class editprofile extends AppCompatActivity {
 
     //variables
     String edituseremail;
-    EditText name,email;
+    EditText name,email; 
     Button saveprofile;
     Intent intent;
 

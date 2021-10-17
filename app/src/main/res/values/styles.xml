@@ -5,9 +5,13 @@
         <item name="colorPrimary">#F1511B</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:background">@drawable/menuwal</item>
-        <!--<item name="android:windowBackground">@drawable/backgroundimg</item>-->
+    </style>
+
+    <style name="request" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
     </style>
 
     <style name="AppTheme1" parent="Theme.AppCompat.Light.DarkActionBar">

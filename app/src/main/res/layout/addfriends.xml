@@ -4,22 +4,24 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
-    android:padding="30dp">
-
+    android:padding="30dp"
+    >
+  
     <EditText
-        android:id="@+id/addftext"
+        android:id="@+id/friendEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Enter Friend's ID"
+        android:hint="Enter Friend's Email"
         android:textAlignment="center"
         android:textSize="30dp" />
 
     <Button
-        android:id="@+id/addf"
+        android:id="@+id/addFriendBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round_but"
+        android:layout_marginTop="30dp"
         android:text="Add Friend" />
 
 

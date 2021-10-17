@@ -13,7 +13,7 @@
 
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:background="@android:color/white"
         app:itemIconTint="#EF501B"

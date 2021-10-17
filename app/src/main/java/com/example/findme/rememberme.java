@@ -7,3 +7,4 @@ public class rememberme {
     public static final String lastlocation = "lastlocation";
 
 }
+ 

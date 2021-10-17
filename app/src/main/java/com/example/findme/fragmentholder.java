@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.Toast;
+import android.widget.Toast; 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;

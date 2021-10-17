@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,7 +19,7 @@ import androidx.core.content.ContextCompat;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
+import android.view.View; 
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -67,12 +68,11 @@ public class currentlocation extends Fragment implements GoogleMap.OnMyLocationB
     // variable declaration
     private final LatLng defaultLocation = new LatLng(6.5410707, 3.2926795);
     private GoogleMap map;
-    private String email;
+    static String email;
     private double latitude, longitude;
-    private boolean lastLocation;
+    private boolean lastLocation = false;
 
-
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     public currentlocation() {
@@ -112,7 +112,7 @@ public class currentlocation extends Fragment implements GoogleMap.OnMyLocationB
 
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new
-                LatLng(6.5410707, 3.2926795), 0));
+                LatLng(6.5410707, 3.2926795), 15));
 
 
         if (map != null) {
@@ -168,7 +168,7 @@ public class currentlocation extends Fragment implements GoogleMap.OnMyLocationB
     }
 
     @Override
-    public void onMyLocationClick(@NonNull Location location) {
+    public void onMyLocationClick(@NonNull  Location location) {
         Log.d(TAG, String.valueOf(location));
         Toast.makeText(getContext(), "Me", Toast.LENGTH_LONG).show();
 
@@ -218,18 +218,22 @@ public class currentlocation extends Fragment implements GoogleMap.OnMyLocationB
         if (String.valueOf(longitude).isEmpty() || String.valueOf(latitude).isEmpty()) {
 
             lastLocation = false;
+            Toast.makeText(getContext(), String.valueOf(lastLocation), Toast.LENGTH_SHORT).show();
 
             //no nothing
         } else {
 
             DocumentReference profiles = db.collection("users").document(email);
-            // Create a new user with a first and last name
+            // updates user location in database
             Map<String, Object> lastlocation = new HashMap<>();
             lastlocation.put("Longitude", longitude);
             lastlocation.put("Latitude", longitude);
             profiles.update(lastlocation);
 
+           // Log.d(TAG, String.valueOf(longitude + latitude));
+
             lastLocation = true;
+          //  Toast.makeText(getContext(), String.valueOf(lastLocation), Toast.LENGTH_SHORT).show();
 
         }
 
