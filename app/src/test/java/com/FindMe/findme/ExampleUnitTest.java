@@ -1,4 +1,4 @@
-package com.example.findme;
+package com.FindMe.findme;
 
 import org.junit.Test;
 

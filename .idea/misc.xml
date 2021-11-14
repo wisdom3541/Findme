@@ -8,18 +8,21 @@
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/drawable/round_but.xml" value="0.18046875" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/drawable/round_butwhite.xml" value="0.18046875" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/activity_maps.xml" value="0.1664092664092664" />
-        <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/addfriends.xml" value="0.16041666666666668" />
+        <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/addfriends.xml" value="0.33" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/adding.xml" value="0.18" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/editprofile.xml" value="0.1664092664092664" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/first.xml" value="0.2" />
+        <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/fragmentholder.xml" value="0.13680555555555557" />
+        <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/frie.xml" value="0.15" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/friendrequest.xml" value="0.168359375" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/friendrequestoption.xml" value="0.16" />
-        <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/friends.xml" value="0.22" />
+        <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/friends.xml" value="0.18" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/friendsprofile.xml" value="0.18" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/login.xml" value="0.16041666666666668" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/settings.xml" value="0.16041666666666668" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/signup.xml" value="0.16041666666666668" />
         <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/layout/username.xml" value="0.14965277777777777" />
+        <entry key="..\:/Users/Ezeokoli/AndroidStudioProjects/findme/app/src/main/res/menu/bottomnavigation.xml" value="0.13680555555555557" />
       </map>
     </option>
   </component>

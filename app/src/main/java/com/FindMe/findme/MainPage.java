@@ -1,4 +1,4 @@
-package com.example.findme;
+package com.FindMe.findme;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,7 +38,8 @@ public class MainPage extends AppCompatActivity {
         //getting Shared preference
         boolean saveLogin = loginPreferences.getBoolean("saveLogin", false);
 
-        if (saveLogin) {
+
+        if (!saveLogin) {
             email = loginPreferences.getString("username", "");
             password = loginPreferences.getString("password", "");
             //method

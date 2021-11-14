@@ -1,73 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#fff"
+    android:orientation="vertical"
     android:padding="30dp"
     tools:context="friendjava">
 
-    <Button
-        android:id="@+id/friendrequestbtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignTop="@+id/pageTitle"
-        android:layout_alignBottom="@+id/pageTitle"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
-        android:layout_toLeftOf="@+id/pageTitle"
-        android:background="@drawable/add_icon"
-        android:padding="20dp">
-
-    </Button>
-
-    <TextView
-        android:id="@+id/pageTitle"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inner_const"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/faxsans"
-        android:text="Friends List"
-        android:textAlignment="center"
-        android:textColor="#FF6C34"
-        android:textSize="35dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/notification_icon"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/Friend_request_btn"
+            app:layout_constraintTop_toTopOf="@id/Friend_request_btn"
+            android:contentDescription="@string/notification">
+
+        </ImageView>
 
 
-    </TextView>
+        <Button
+            android:id="@+id/Friend_request_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/friend_request"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/pageTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pageTitle">
 
-    <Button
-        android:id="@+id/addnewfriendBTN"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignTop="@+id/pageTitle"
-        android:layout_alignBottom="@+id/pageTitle"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
-        android:layout_toRightOf="@+id/pageTitle"
-        android:background="@drawable/add_icon"
-        android:padding="20dp">
+        </Button>
 
-    </Button>
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/faxsans"
+            android:gravity="center"
+            android:text="@string/friends_list"
+            android:textColor="#FF6C34"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/addNewFriendBTN"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/add_icon"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/pageTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pageTitle">
+
+        </Button>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ListView
         android:id="@+id/listview1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pageTitle"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
         android:scrollbars="none"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
-  
+        />
 
-</RelativeLayout>
+
+</LinearLayout>

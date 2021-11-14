@@ -1,4 +1,4 @@
-package com.example.findme;
+package com.FindMe.findme;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,8 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.Toast; 
+import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -20,6 +21,9 @@ public class fragmentholder extends AppCompatActivity implements BottomNavigatio
     //variables
     Intent intent1;
     AlertDialog.Builder alert;
+    BottomNavigationItemView friends;
+    BottomNavigationView nav;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class fragmentholder extends AppCompatActivity implements BottomNavigatio
         //hooks, intent
         BottomNavigationView navigationView = findViewById(R.id.bottomNavigation);
         intent1 = new Intent(fragmentholder.this, login.class);
+        friends = findViewById(R.id.friends_ic);
 
         navigationView.setOnNavigationItemSelectedListener(this);
 
@@ -46,7 +51,7 @@ public class fragmentholder extends AppCompatActivity implements BottomNavigatio
 
     }
 
-    //bottom nav listerner
+    //bottom nav    Listener
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -54,8 +59,10 @@ public class fragmentholder extends AppCompatActivity implements BottomNavigatio
             case R.id.home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new currentLocation()).commit();
                 break;
-            case R.id.friends:
+            case R.id.friends_ic: {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new friendjava()).commit();
+            }
+
                 break;
 
             case R.id.settings:
@@ -86,4 +93,5 @@ public class fragmentholder extends AppCompatActivity implements BottomNavigatio
                 .show();
 
     }
+
 }

@@ -1,4 +1,4 @@
-package com.example.findme;
+package com.FindMe.findme;
 
 import android.content.Intent;
 import android.os.Bundle;

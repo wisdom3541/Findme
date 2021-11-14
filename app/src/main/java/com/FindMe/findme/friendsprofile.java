@@ -1,4 +1,4 @@
-package com.example.findme;
+package com.FindMe.findme;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,6 @@ public class friendsprofile extends AppCompatActivity {
     //variables
     Button findme, unfriend;
     Intent intent;
-    private int width, height;
 
 
     @Override
@@ -36,8 +35,8 @@ public class friendsprofile extends AppCompatActivity {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
-        width = dm.widthPixels;
-        height = dm.heightPixels;
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
 
         getWindow().setLayout((int) (width * .4), (int) (height * .3));
 

@@ -4,7 +4,7 @@
 
 
     <item
-        android:id="@+id/friends"
+        android:id="@+id/friends_ic"
         android:enabled="true"
         android:icon="@drawable/ic_friends"
         android:title="Friends" />

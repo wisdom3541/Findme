@@ -1,12 +1,9 @@
-package com.example.findme;
+package com.FindMe.findme;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.view.View;
 import android.widget.Button;

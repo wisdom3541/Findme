@@ -1,8 +1,7 @@
-package com.example.findme;
+package com.FindMe.findme;
 
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,17 +18,10 @@ public class username extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.username);
 
-        username = (TextView) findViewById(R.id.user1);
-        submit = (Button) findViewById(R.id.submituser);
+        username = findViewById(R.id.user1);
+        submit =  findViewById(R.id.submituser);
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                username1 = username.getText().toString();
-
-            }
-        });
+        submit.setOnClickListener(v -> username1 = username.getText().toString());
 
     }
 }

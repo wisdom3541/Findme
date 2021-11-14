@@ -1,4 +1,4 @@
-package com.example.findme;
+package com.FindMe.findme;
 
 import static android.content.ContentValues.TAG;
 import static android.content.Context.MODE_PRIVATE;
@@ -7,11 +7,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.Manifest;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
-import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,29 +25,19 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class currentLocation extends Fragment implements GoogleMap.OnMyLocationButtonClickListener,
@@ -67,12 +53,6 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private static final int DEFAULT_ZOOM = 15;
 
-    /**
-     * Flag indicating whether a requested permission has been denied after returning in
-     * {@link #onRequestPermissionsResult(int, String[], int[])}.
-     */
-    private boolean permissionDenied = false;
-    private boolean locationPermissionGranted;
     private FusedLocationProviderClient fusedLocationProviderClient;
 
 
@@ -112,7 +92,7 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
         }
 
 
-        friendLocationPreferences = getActivity().getSharedPreferences("friendLocation", MODE_PRIVATE);
+        friendLocationPreferences = requireActivity().getSharedPreferences("friendLocation", MODE_PRIVATE);
 
 
         return view;
@@ -122,7 +102,7 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
 
     //don't be scared....google maps documentation..... some tweaksss
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
 
         enableMyLocation();
         map = googleMap;
@@ -136,7 +116,7 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
 
         if (map != null) {
             //map.addMarker(new MarkerOptions().position(new LatLng(6.5410707, 3.2926795)).title("Marker"));
-            if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext()
+            if (ActivityCompat.checkSelfPermission(requireActivity().getApplicationContext()
                     , Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext()
                     , Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -156,6 +136,7 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
 
             try {
                 FragmentManager fm = getFragmentManager();
+                assert getFragmentManager() != null;
                 int count = getFragmentManager().getBackStackEntryCount();
                 prevFrag = fm.getBackStackEntryAt(count - 1).getName();
                 Log.d("TAG", prevFrag);
@@ -165,9 +146,9 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
                 if (prevFrag.equals("friend")) {
 
                     friendSelected = friendLocationPreferences.getString("selectedfriend", "");
-                    Log.d("TAG", "friend" + friendSelected);
+                    Log.d("TAG", "friend Selected:" + friendSelected);
 
-                    getFriendLocation();
+                    getFriendLocation(friendSelected);
 
                 }
 
@@ -188,9 +169,9 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
      */
     private void enableMyLocation() {
         // [START maps_check_location_permission]
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            locationPermissionGranted = true;
+            boolean locationPermissionGranted = true;
             if (map != null) {
                 map.setMyLocationEnabled(true);
 
@@ -229,6 +210,8 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
         Log.d("lat", String.valueOf(latitude));
         Log.d("lat", String.valueOf(longitude));
 
+        map.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("Me"));
+
         updateUserLocation();
         // getDeviceLocation();
     }
@@ -248,7 +231,11 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
             // [START_EXCLUDE]
             // Display the missing permission error dialog when the fragments resume.
             showMissingPermissionError();
-            permissionDenied = true;
+            /**
+             * Flag indicating whether a requested permission has been denied after returning in
+             * {@link #onRequestPermissionsResult(int, String[], int[])}.
+             */
+            boolean permissionDenied = true;
             // [END_EXCLUDE]
         }
     }
@@ -290,7 +277,7 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
 
     }
 
-    public void getFriendLocation() {
+    public void getFriendLocation(String friendSelected) {
         DocumentReference collectionReference = db.collection("users").document(friendSelected);
 
         collectionReference.get().addOnCompleteListener(task -> {
@@ -304,15 +291,11 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
                     Log.d("Tag", String.valueOf(selectedFriendLongitude));
 
 
-                    if (!String.valueOf(selectedFriendLongitude).isEmpty() || !String.valueOf(selectedFriendLatitude).isEmpty()) {
-
-
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        draw();
-
-                    } else {
+                    //validating that DB didn't return empty string
+                    if (!String.valueOf(selectedFriendLongitude).isEmpty() || !String.valueOf(selectedFriendLatitude).isEmpty())
+                        getPrecise();
+                    else
                         Toast.makeText(getContext(), "User isn't sharing location at the moment", Toast.LENGTH_SHORT).show();
-                    }
 
 
                 } else {
@@ -326,19 +309,15 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
     }
 
 
-    public void draw() {
+    // dr
+    public void getPrecise() {
 
 
         Log.d("Tag", String.valueOf(selectedFriendLatitude));
         Log.d("Tag", String.valueOf(selectedFriendLongitude));
 
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new
-                LatLng(selectedFriendLatitude, selectedFriendLongitude), 15));
-
-
-
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(selectedFriendLatitude, selectedFriendLongitude), 15));
+        map.addMarker(new MarkerOptions().position(new LatLng(selectedFriendLatitude, selectedFriendLongitude)).title("Me"));
 
 
     }
