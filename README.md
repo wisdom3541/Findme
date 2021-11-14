@@ -4,7 +4,7 @@
 
 <h3>Technology implemented</h3>
 <ul>
-<li>Firebase Database(Tracking Users Data, Add Friend)</li>
+<li>Firebase Database(Tracking User Data, Add Friend Function)</li>
 <li>User Validation(signup/signin)</li>
 <li>Google Map api</li>
 </ul>
