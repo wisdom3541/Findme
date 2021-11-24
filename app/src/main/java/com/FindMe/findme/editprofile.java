@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,18 +28,14 @@ public class editprofile extends AppCompatActivity {
             intent = new Intent(editprofile.this,settings.class);
 
 
-            saveprofile.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            saveprofile.setOnClickListener(v -> {
 
-                  edituseremail = name.getText().toString();
-                  edituseremail = email.getText().toString();
+              edituseremail = name.getText().toString();
+              edituseremail = email.getText().toString();
 
-                    Toast.makeText(getApplicationContext(),"Profile saved", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Profile saved", Toast.LENGTH_LONG).show();
 
-                    //getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new settings()).commit();
+                //getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new settings()).commit();
 
-            }
-
-            });
+        });
 }}

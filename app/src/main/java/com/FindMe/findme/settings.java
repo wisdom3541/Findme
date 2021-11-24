@@ -13,10 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -62,55 +58,34 @@ public class settings extends Fragment {
 
 
         //listerner
-        editpro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                     startActivity(intent);
-                }
-        });
+        editpro.setOnClickListener(v -> startActivity(intent));
 
 
-        deleteuserbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        deleteuserbutton.setOnClickListener(v ->  {
 
                 db.collection("users").document(email1)
                         .delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
+                        .addOnSuccessListener(aVoid -> {
 
-                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
-                                user.delete()
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    Log.d(TAG, "User account deleted.");
-                                                }
-                                            }
-                                        });
-                                testingtReAuth();
+                            user1.delete()
+                                    .addOnCompleteListener(task -> {
+                                        if (task.isSuccessful()) {
+                                            Log.d(TAG, "User account deleted.");
+                                        }
+                                    });
+                            testingtReAuth();
 
-                                Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                            Log.d(TAG, "DocumentSnapshot successfully deleted!");
 
-                            }
                         })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w("TAG: ", "Error deleting document", e);
-                            }
-                        });
+                        .addOnFailureListener(e -> Log.w("TAG: ", "Error deleting document", e));
 
                 FirebaseAuth.getInstance().signOut();
 
                 startActivity(intent1);
-            }
-
-
-        });
+            });
 
 
         return view;
@@ -137,12 +112,7 @@ public class settings extends Fragment {
 
             // Prompt the user to re-provide their sign-in credentials
             userInstance.reauthenticate(credential)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Log.d(TAG, "User re-authenticated.");
-                        }
-                    });
+                    .addOnCompleteListener(task -> Log.d(TAG, "User re-authenticated."));
         }
     }
 

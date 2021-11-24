@@ -1,6 +1,5 @@
 package com.FindMe.findme;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -80,14 +79,11 @@ public class fragmentholder extends AppCompatActivity implements BottomNavigatio
         alert.setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Are you sure ")
                 .setMessage("Do you want to Log out")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-                        //signout pastor
-                        FirebaseAuth.getInstance().signOut();
-                        startActivity(intent1);
-                        finish();
-                    }
+                .setPositiveButton("Yes", (dialog, i) -> {
+                    //signout pastor
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(intent1);
+                    finish();
                 })
                 .setNegativeButton("No", null)
                 .show();

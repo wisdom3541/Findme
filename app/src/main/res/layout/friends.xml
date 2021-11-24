@@ -31,10 +31,10 @@
 
 
         <Button
-            android:id="@+id/Friend_request_btn"
+            android:id="@+id/addNewFriendBTN"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/friend_request"
+            android:background="@drawable/find_friend_icon"
             android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/pageTitle"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,10 +58,10 @@
         </TextView>
 
         <Button
-            android:id="@+id/addNewFriendBTN"
+            android:id="@+id/Friend_request_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/add_icon"
+            android:background="@drawable/friend_request"
             android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/pageTitle"
             app:layout_constraintEnd_toEndOf="parent"

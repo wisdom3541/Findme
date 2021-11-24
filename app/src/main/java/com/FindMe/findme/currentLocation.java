@@ -111,7 +111,7 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
 
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new
-                LatLng(6.5410707, 3.2926795), 15));
+                LatLng(6.5410707, 3.2926795), DEFAULT_ZOOM));
 
 
         if (map != null) {
@@ -132,7 +132,6 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
 
             //fromFriendActivity = friendLocationPreferences.getBoolean("fromFriendList", false);
 
-            Log.d("TAG", String.valueOf(fromFriendActivity));
 
             try {
                 FragmentManager fm = getFragmentManager();
@@ -316,44 +315,11 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
         Log.d("Tag", String.valueOf(selectedFriendLatitude));
         Log.d("Tag", String.valueOf(selectedFriendLongitude));
 
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(selectedFriendLatitude, selectedFriendLongitude), 15));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(selectedFriendLatitude, selectedFriendLongitude), DEFAULT_ZOOM));
         map.addMarker(new MarkerOptions().position(new LatLng(selectedFriendLatitude, selectedFriendLongitude)).title("Me"));
 
 
     }
-
-
-   /* private void getDeviceLocation() {
-
-         //* Get the best and most recent location of the device, which may be null in rare
-        // * cases when a location is not available.
-
-        try {
-            if (locationPermissionGranted) {
-                Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
-                locationResult.addOnCompleteListener((Executor) this, task -> {
-                    if (task.isSuccessful()) {
-                        // Set the map's camera position to the current location of the device.
-                        lastKnownLocation = task.getResult();
-                        if (lastKnownLocation != null) {
-                            map.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                    new LatLng(lastKnownLocation.getLatitude(),
-                                            lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-                            Log.d(TAG,(lastKnownLocation.getLatitude() + "   "  + lastKnownLocation.getLongitude()));
-                        }
-                    } else {
-                        Log.d(TAG, "Current location is null. Using defaults.");
-                        Log.e(TAG, "Exception: %s", task.getException());
-                        map.moveCamera(CameraUpdateFactory
-                                .newLatLngZoom(defaultLocation, DEFAULT_ZOOM));
-                        map.getUiSettings().setMyLocationButtonEnabled(false);
-                    }
-                });
-            }
-        } catch (SecurityException e)  {
-            Log.e("Exception: %s", e.getMessage(), e);
-        }
-    }*/
 
 
 }
@@ -364,165 +330,4 @@ public class currentLocation extends Fragment implements GoogleMap.OnMyLocationB
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    /* View v = inflater.inflate(R.layout.activity_maps, container, false);
-
-     return v;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            checklocationpermission();
-        }
-
-        SupportMapFragment mMapFragment = SupportMapFragment.newInstance();
-        FragmentTransaction fragmentTransaction =
-                getChildFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.map, mMapFragment);
-        fragmentTransaction.commit();
-        mMapFragment.getMapAsync(this);
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        map1= googleMap;
-        if(ContextCompat.checkSelfPermission(this.getContext(),Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-        {
-            buildGoogleApiClient();
-            map1.setMyLocationEnabled(true);
-        }
-
-    }
-
-    public boolean checklocationpermission(){
-        if (ContextCompat.checkSelfPermission(this.getContext(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-                if(ActivityCompat.shouldShowRequestPermissionRationale(this.getActivity(),Manifest.permission.ACCESS_FINE_LOCATION)){
-                    ActivityCompat.requestPermissions(this.getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, requestlocation );
-                }
-                else {
-                    ActivityCompat.requestPermissions(this.getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, requestlocation );
-
-                }
-                return false;
-        }
-        else{
-            return true;
-        }
-
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode)
-        {
-            case requestlocation:
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    if(ContextCompat.checkSelfPermission(this.getContext(),Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-                    {
-                        if (googleApiClient == null)
-                        {
-                            buildGoogleApiClient();
-                        }
-                        map1.setMyLocationEnabled(true);
-                    }
-                }
-                else{
-                    Toast.makeText(this.getContext(), "Permission denied", Toast.LENGTH_SHORT).show();
-
-                }
-         return;
-        }
-
-    }
-
-    protected synchronized void  buildGoogleApiClient(){
-
-        googleApiClient = new GoogleApiClient.Builder(this.getContext())
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-
-        googleApiClient.connect();
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        lastlocation = location;
-
-        if(userlocmarker != null){
-            userlocmarker.remove();
-        }
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        double latt = location.getLatitude();
-        double longg = location.getLongitude();
-
-        geocoder = new Geocoder(this.getContext(), Locale.getDefault());
-        try {
-            locadss = geocoder.getFromLocation(latt,longg,1);
-             address = locadss.get(0).getAddressLine(0);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title(address);
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-
-
-        userlocmarker = map1.addMarker(markerOptions);
-        // Selct maptype
-        map1.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-
-        map1.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        map1.animateCamera(CameraUpdateFactory.zoomBy(20));
-
-
-        if(googleApiClient != null){
-            LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient,this);
-        }
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(11000);
-        locationRequest.setFastestInterval(11000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-
-        if(ContextCompat.checkSelfPermission(this.getContext(),Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-        {
-            LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
-        }
-
-
-
-    }
-
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }*/
 

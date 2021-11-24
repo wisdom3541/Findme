@@ -2,7 +2,6 @@ package com.FindMe.findme;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,35 +33,32 @@ public class forgotpassword extends AppCompatActivity {
 
 
         //listerner
-        sendbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        sendbutton.setOnClickListener(view -> {
 
-                email = recoverymail.getText().toString();
+            email = recoverymail.getText().toString();
 
-                if (!email.isEmpty()) {
-                    FirebaseAuth auth = FirebaseAuth.getInstance();
-                    auth.sendPasswordResetEmail(email)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.d(TAG, "Email sent.");
-                                        Toast.makeText(forgotpassword.this, "Email sent...", Toast.LENGTH_SHORT).show();
-                                    }
+            if (!email.isEmpty()) {
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                auth.sendPasswordResetEmail(email)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "Email sent.");
+                                    Toast.makeText(forgotpassword.this, "Email sent...", Toast.LENGTH_SHORT).show();
                                 }
-                            });
+                            }
+                        });
 
-                } else {
-
-
-                    Toast.makeText(forgotpassword.this, "Please enter your email address...", Toast.LENGTH_LONG).show();
+            } else {
 
 
-                }
+                Toast.makeText(forgotpassword.this, "Please enter your email address...", Toast.LENGTH_LONG).show();
 
 
             }
+
+
         });
 
 

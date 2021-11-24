@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,87 +65,81 @@ public class friendRequestOption extends Activity {
 
 
 
-        accept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        accept.setOnClickListener(view -> {
 
-                //updating accepted user to current user friend list to true
-                CollectionReference acceptrequest = db.collection("users").document(email)
-                        .collection("Friends");
+            //updating accepted user to current user friend list to true
+            CollectionReference acceptrequest = db.collection("users").document(email)
+                    .collection("Friends");
 
-                Map<String, Object> newFriendRequest = new HashMap<>();
-                newFriendRequest.put("Accepted", true);
-                acceptrequest.document(currentUserEmail).update(newFriendRequest);
+            Map<String, Object> newFriendRequest = new HashMap<>();
+            newFriendRequest.put("Accepted", true);
+            acceptrequest.document(currentUserEmail).update(newFriendRequest);
 
 
-                //updating the accepted user-request friend list
-                CollectionReference profiles = db.collection("users").document(currentUserEmail).collection("Friends");
-                // add accepted user to friend list
-                Map<String, Object> newFriend = new HashMap<>();
-                newFriend.put("friend Email", email);
-                newFriend.put("Accepted", true);
+            //updating the accepted user-request friend list
+            CollectionReference profiles = db.collection("users").document(currentUserEmail).collection("Friends");
+            // add accepted user to friend list
+            Map<String, Object> newFriend = new HashMap<>();
+            newFriend.put("friend Email", email);
+            newFriend.put("Accepted", true);
 
-                profiles.document(email).set(newFriend);
+            profiles.document(email).set(newFriend);
 
-                //updating that request as been accepted
-                //that user will be removed from the friend request list
-                CollectionReference friendRequest = db.collection("users").document(currentUserEmail).collection("Friend Request");
-                Map<String, Object> updateFriendRequestList = new HashMap<>();
-                updateFriendRequestList.put("Accepted", true);
+            //updating that request as been accepted
+            //that user will be removed from the friend request list
+            CollectionReference friendRequest = db.collection("users").document(currentUserEmail).collection("Friend Request");
+            Map<String, Object> updateFriendRequestList = new HashMap<>();
+            updateFriendRequestList.put("Accepted", true);
 
-                friendRequest.document(email).update(updateFriendRequestList);
+            friendRequest.document(email).update(updateFriendRequestList);
 
-                Toast.makeText(friendRequestOption.this, "Friend Request Accepted", Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(friendRequestOption.this, "Friend Request Accepted", Toast.LENGTH_SHORT).show();
         });
 
         //decline and then delete friend and friend request from database
-        decline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        decline.setOnClickListener(view -> {
 
-                CollectionReference deleteDeclineUser = db.collection("users").document(currentUserEmail).collection("Friend Request");
-                CollectionReference deleteUserinfoFromSenderlist = db.collection("users").document(email).collection("Friends");
+            CollectionReference deleteDeclineUser = db.collection("users").document(currentUserEmail).collection("Friend Request");
+            CollectionReference deleteUserinfoFromSenderlist = db.collection("users").document(email).collection("Friends");
 
-                deleteDeclineUser.document(email)
-                        .delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(friendRequestOption.this, "Request declined", Toast.LENGTH_LONG).show();
-                                Log.d(TAG, "DocumentSnapshot successfully deleted!");
-                                finish();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error deleting document", e);
-                            }
-                        });
+            deleteDeclineUser.document(email)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(friendRequestOption.this, "Request declined", Toast.LENGTH_LONG).show();
+                            Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                            finish();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error deleting document", e);
+                        }
+                    });
 
-                deleteUserinfoFromSenderlist.document(currentUserEmail)
-                        .delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
+            deleteUserinfoFromSenderlist.document(currentUserEmail)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
 
-                                Log.d(TAG, "deleteUserinfoFromSenderlist successful!");
-                                finish();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error deleting document", e);
-                            }
-                        });
+                            Log.d(TAG, "deleteUserinfoFromSenderlist successful!");
+                            finish();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error deleting document", e);
+                        }
+                    });
 
 
 
 
-                Toast.makeText(friendRequestOption.this, "Friend Request Declined", Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(friendRequestOption.this, "Friend Request Declined", Toast.LENGTH_SHORT).show();
         });
 
     }

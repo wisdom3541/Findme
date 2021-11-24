@@ -47,45 +47,42 @@ public class addfriends extends Activity {
 
 
         //onClicklisterners
-        addfriendBTn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addfriendBTn.setOnClickListener(v -> {
 
-                email = friendEmail.getText().toString();
+            email = friendEmail.getText().toString();
 
-                if (!email.isEmpty()) {
+            if (!email.isEmpty()) {
 
-                    DocumentReference receiverRef = db.collection("users").document(email);
+                DocumentReference receiverRef = db.collection("users").document(email);
 
-                    if (!receiverRef.toString().isEmpty()) {
-                        CollectionReference sendRequest = receiverRef.collection("Friend Request");
+                if (!receiverRef.toString().isEmpty()) {
+                    CollectionReference sendRequest = receiverRef.collection("Friend Request");
 
-                        // Create a new user with a first and last name
-                        Map<String, Object> newFriendRequest = new HashMap<>();
-                        newFriendRequest.put("friend Email", useremail);
-                        newFriendRequest.put("Accepted",accepted);
-
-                        sendRequest.document(useremail).set(newFriendRequest);
-
-                        Toast.makeText(addfriends.this, "Friend request sent...!!", Toast.LENGTH_LONG).show();
-                    }else {
-                        Toast.makeText(addfriends.this, "User does not exist", Toast.LENGTH_SHORT).show();
-                    }
-
-                    CollectionReference profiles = db.collection("users").document(useremail).collection("Friends");
                     // Create a new user with a first and last name
-                    Map<String, Object> newFriend = new HashMap<>();
-                    newFriend.put("friend Email", email);
-                    newFriend.put("Accepted", accepted);
+                    Map<String, Object> newFriendRequest = new HashMap<>();
+                    newFriendRequest.put("friend Email", useremail);
+                    newFriendRequest.put("Accepted",accepted);
 
-                    profiles.document(email).set(newFriend);
+                    sendRequest.document(useremail).set(newFriendRequest);
 
-                } else {
-                    Toast.makeText(addfriends.this, "Please enter an Email address", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addfriends.this, "Friend request sent...!!", Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(addfriends.this, "User does not exist", Toast.LENGTH_SHORT).show();
                 }
 
+                CollectionReference profiles = db.collection("users").document(useremail).collection("Friends");
+                // Create a new user with a first and last name
+                Map<String, Object> newFriend = new HashMap<>();
+                newFriend.put("friend Email", email);
+                newFriend.put("Accepted", accepted);
 
+                profiles.document(email).set(newFriend);
+
+            } else {
+                Toast.makeText(addfriends.this, "Please enter an Email address", Toast.LENGTH_SHORT).show();
             }
+
+
         });
 
     }

@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.DisplayMetrics;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -43,29 +42,19 @@ public class friendsprofile extends AppCompatActivity {
         //end
 
 
-        findme.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        findme.setOnClickListener(v -> {
 
-                Toast.makeText(friendsprofile.this, "Loading map...Please wait", Toast.LENGTH_LONG).show();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new currentLocation()).commit();
-                finish();
-
-
-            }
+            Toast.makeText(friendsprofile.this, "Loading map...Please wait", Toast.LENGTH_LONG).show();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frag_cont, new currentLocation()).commit();
+            finish();
 
 
         });
 
-        unfriend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        unfriend.setOnClickListener(v -> {
 
                 Toast.makeText(friendsprofile.this, "Friend Deleted", Toast.LENGTH_LONG).show();
-            }
-
-
-        });
+            });
     }
 
 

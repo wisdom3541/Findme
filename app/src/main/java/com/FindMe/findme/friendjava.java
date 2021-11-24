@@ -116,7 +116,7 @@ public class friendjava extends Fragment {
         try {
             updateNotification();
         } catch (Exception e) {
-            Log.d("Notification Exception :", e.toString());
+            Log.d("Exception :", e.toString());
         }
 
 
@@ -176,51 +176,6 @@ public class friendjava extends Fragment {
                 });
 
     }
-
-
-
-
-
-
-
-
-    /* public void getFriendLocation() {
-        DocumentReference collectionReference = db.collection("users").document(selectedFriend);
-
-        collectionReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        longitude = (double) document.get("Longitude");
-                        latitude =  (double)document.get("Latitude");
-
-                        if (!String.valueOf(longitude).isEmpty() || !String.valueOf(latitude).isEmpty()) {
-                            //friendLocationPrefsEditor.putBoolean("fromFriendList", true);
-                            currentLocation.fromFriendActivity = true;
-                            friendLocationPrefsEditor.putInt("longitude", (int) longitude);
-                            friendLocationPrefsEditor.putInt("latitude", (int) latitude);
-                            friendLocationPrefsEditor.commit();
-
-
-                            Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-
-                        } else {
-                            Toast.makeText(getContext(), "User isn't sharing location at the moment", Toast.LENGTH_SHORT).show();
-                        }
-
-
-                    } else {
-                        Log.d(TAG, "No such document");
-                    }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
-                }
-            }
-        });
-
-    }*/
 
 }
 
